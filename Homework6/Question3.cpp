@@ -16,14 +16,13 @@ double Mean(const std::vector<double>& v){
     return sum/n;
 }
 
-void PromblemA(std::mt19937& gen){
+void PromblemA(std::mt19937& gen, int samples){
     // generate value on exponential distribution
     double lambda = 1.0;
     std::exponential_distribution<> X(lambda);
     std::exponential_distribution<> Y(lambda);
 
     // simulate the results
-    int samples = 10000;
     std::vector<double> M(samples);
     std::vector<double> L(samples);
     std::vector<double> ML(samples);
@@ -45,13 +44,12 @@ void PromblemA(std::mt19937& gen){
     std::cout << "cov(M, L) = " << cov_ML << std::endl;
 }
 
-void PromblemB(std::mt19937& gen){
+void PromblemB(std::mt19937& gen, int samples){
     // generate value on normal distribution
     std::normal_distribution<> X(0.0, 1.0);
     std::normal_distribution<> Y(0.0, 1.0);
 
     // simulate the results
-    int samples = 10000;
     std::vector<double> M(samples);
     std::vector<double> L(samples);
     std::vector<double> ML(samples);
@@ -78,8 +76,9 @@ int main(){
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    PromblemA(gen);
-    PromblemB(gen);
+    int samples = 10000;
+    PromblemA(gen, samples);
+    PromblemB(gen, samples);
 
     return 0;
 }
