@@ -69,7 +69,7 @@ void PromblemB(std::mt19937& gen){
     double E_ML = Mean(ML);
     double cov_ML = E_ML - (E_M * E_L);
 
-    std::cout << "(b) X, Y ~ N(1)" << std::endl;
+    std::cout << "(b) X, Y ~ N(0, 1)" << std::endl;
     std::cout << "cov(M, L) = " << cov_ML << std::endl;
 }
 
