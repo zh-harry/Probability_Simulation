@@ -50,7 +50,7 @@ void GeneratingResults(std::mt19937& gen){
 
         // after deducting N1 from total times
         // times of N2 still follow binomial distribution
-        // but with smaller probabity 1/(6-1)
+        // but with larger probabity 1/(6-1)
         std::binomial_distribution<> N2(n-n1, 1.0/5.0);
         int n2 = N2(gen);
         ++results_N2[n2];
